@@ -20,7 +20,7 @@ exports.findAll = function(req, res) {
 
 	  //do the SQL bit
 
-	 	var query = client.query('SELECT id, Bath__c, Beds__c, CreatedDate, Description__c, Information__c, Mobile_Image__c, Name, Parking__c, Property_Id__c, RPP_Market_Value__c, Sale_Date__c, Sale_Price__c, Street__c, Suburb__c, Type__c FROM Listing__c order by id ASC');
+	 	var query = client.query('SELECT id, Bath__c, Beds__c, CreatedDate, Description__c, Information__c, Mobile_Image__c, Name, Parking__c, Property_Id__c, RPP_Market_Value__c, Sale_Date__c, Sale_Price__c, Street__c, Suburb__c, Type__c FROM salesforce.Listing__c order by id ASC');
 
 	  	//stream results back one at a time
 	  	query.on('row', function(row) {
@@ -55,9 +55,9 @@ exports.updateListing = function(req, res) {
 	  	}
 
 	  	//SQL query to update data
-	  	client.query('UPDATE Listing__c SET saleprice = ($1), saledate = ($2) WHERE id = ($3)', [jssaleprice, jssaledate, listingId]);
+	  	client.query('UPDATE salesforce.Listing__c SET saleprice = ($1), saledate = ($2) WHERE id = ($3)', [jssaleprice, jssaledate, listingId]);
 	  	//query back the data set
-	 	var query = client.query('SELECT id, information, bath, parking, saleprice, saledate FROM Listing__c WHERE id = ($1)', [listingId]);
+	 	var query = client.query('SELECT id, information, bath, parking, saleprice, saledate FROM salesforce.Listing__c WHERE id = ($1)', [listingId]);
 
 	  	//stream results back one at a time
 	  	query.on('row', function(row) {
