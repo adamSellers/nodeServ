@@ -14,5 +14,5 @@ app.get('/', listings.startScreen);
 app.get('/listings', listings.findAll);
 app.put('/listings/:listingId', listings.updateListing);
 
-app.listen(3000);
-console.log('Listening on port 3000...');
+app..listen(process.env.PORT || 3000);
+console.log('Listening on port whatever...');
