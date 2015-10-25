@@ -55,9 +55,9 @@ exports.updateListing = function(req, res) {
 	  	}
 
 	  	//SQL query to update data
-	  	client.query('UPDATE listing__c SET saleprice = ($1), saledate = ($2) WHERE id = ($3)', [jssaleprice, jssaledate, listingId]);
+	  	client.query('UPDATE Listing__c SET saleprice = ($1), saledate = ($2) WHERE id = ($3)', [jssaleprice, jssaledate, listingId]);
 	  	//query back the data set
-	 	var query = client.query('SELECT id, information, bath, parking, saleprice, saledate FROM listing__c WHERE id = ($1)', [listingId]);
+	 	var query = client.query('SELECT id, information, bath, parking, saleprice, saledate FROM Listing__c WHERE id = ($1)', [listingId]);
 
 	  	//stream results back one at a time
 	  	query.on('row', function(row) {
