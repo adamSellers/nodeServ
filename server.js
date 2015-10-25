@@ -21,13 +21,11 @@ var allowCrossDomain = function(req, res, next) {
 
 var app = express();
 
-app.configure(function() { 
-	app.use(allowCrossDomain);
-	app.use( bodyParser.json() );       // to support JSON-encoded bodies
-	app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-	  extended: true
-	}));
-});
+app.use(allowCrossDomain);
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
 
 app.get('/', listings.startScreen);
 app.get('/listings', listings.findAll);
