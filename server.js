@@ -31,5 +31,6 @@ app.get('/', listings.startScreen);
 app.get('/listings', listings.findAll);
 app.post('/listings/:listingId', listings.updateListing);
 
-app.listen(process.env.PORT || 3000);
-console.log('Listening on port whatever...');
+var port = process.env.PORT || 3000;
+app.listen(port);
+console.log('Listening on port '+3000);
