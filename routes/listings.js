@@ -1,5 +1,5 @@
 var pg = require('pg');
-var conString = "postgres://wtvlpmlivxclwj:h5HS50GEi6T5m0ffJZJJ3LfUv9@ec2-54-225-197-30.compute-1.amazonaws.com:5432/d45s4j1ntefvak";
+var conString = process.env.DATABASE_URL;
 
 exports.startScreen = function(req, res) {
 	res.json({message: 'you made it to the app, good for you!'});
